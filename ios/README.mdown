@@ -1,0 +1,534 @@
+**License**
+========================
+
+Copyright 2012 Facebook, Inc.
+
+You are hereby granted a non-exclusive, worldwide, royalty-free license to
+use, copy, modify, and distribute this software in source code or binary
+form for use in connection with the web services and APIs provided by
+Facebook.
+
+As with any software that integrates with the Facebook platform, your use
+of this software is subject to the [Facebook Developer Principles and
+Policies](http://developers.facebook.com/policy/). This copyright notice
+shall be included in all copies or substantial portions of the software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+**Critical Mass Demo**
+========================
+
+This README will guide you through the Critical Mass iOS app demo given at GDC 2012. The iOS app package contains the initial app and the completed app. The initial app is your starting point for the demo steps. You can use the completed app as a reference if you run into any issues.
+
+This README will walk you through the following:
+
+* Getting Started
+* Creating your Facebook app
+* Installing the iOS app
+* Stepping through the demo
+
+**Getting Started**
+===================
+
+Your install package should have the following files:
+
+* CriticalMass iOS Project (iOS)
+  * Xcode project containing the initial app
+
+* CriticalMassComplete iOS Project (iOS)
+  * Xcode project containing the completed app
+
+To get the sample code do the following:
+
+* Install [Git](http://git-scm.com/).
+
+* Pull the samples package from GitHub:
+
+    git clone git://github.com/fbsamples/CriticalMass
+
+**Creating your Facebook app**
+==============================
+
+First set up a Facebook app using the Developer app:
+
+* Create a new [Facebook app](https://developers.facebook.com/apps)
+* Enter the `App Namespace` when creating your app. You can choose a simple string to identify your app, such as ''criticalmass'', but it must be unique.
+* Configure the Native iOS App settings
+  * Enter a _iOS Bundle ID_. This should be of the form com.example.samples.criticalmass where example corresponds to your domain. You should note this bundle ID because it needs to match the _Bundle identifier_ in the Xcode project.
+  * Enter a value for the _iPhone App Store ID_. The value must correspond to any valid iTunes app ID.
+  * Enter "0" in the _iPad App Store ID_ setting 
+  * Enable the _Configured for iOS SSO_ setting
+
+**Installing the iOS app**
+==========================
+
+**Configuring the app**
+
+1. Using Xcode open up CriticalMass/CriticalMass.xcodeproj
+
+1. Set up the Facebook iOS SDK:
+   1. Get the latest Facebook iOS SDK from GitHub: git clone git://github.com/facebook/facebook-ios-sdk.git
+   2. You should see a folder called facebook-ios-sdk/src that contains the SDK
+   3. Drag the src folder to the CriticalMassTest project. You may choose to copy the items over into your project.
+
+2. Set up your App ID:
+    1. Open up AppDelegate.m, add your app ID by changing:
+
+             static NSString *kAppId = @"343598042347842";
+
+     to:
+
+             static NSString *kAppId = @"YOUR_APP_ID";
+
+   1. Open up CriticalMass/Supporting Files/CriticalMass-Info.plist
+   1. Navigate to URL types > Item 0 > URL Schemes > Item 0
+   1. Replace fbYOUR_APP_ID with "fb" followed by your app ID, e.g. fb123456 if your app ID is 123456
+
+3. Set up your Bundle Identifier
+   1. Open up CriticalMass/Supporting Files/CriticalMass-Info.plist
+   1. Edit the Bundle identifier information and make sure it matches the settings in the Facebook Dev App
+
+4. Repeat steps (1) through (3) for the CriticalMassComplete Xcode project.
+
+
+**Stepping through the demo**
+=============================================================================
+
+1. Using Xcode open up CriticalMass/CriticalMass.xcodeproj
+
+**Add Facebook Authentication**
+
+App Delegate Header ….
+
+1. Import the Facebook library headers and add to the app delegate
+
+             #import "FBConnect.h"
+
+2. Add definition for Facebook
+
+             @property (nonatomic, retain) Facebook *facebook;
+
+
+App Delegate Implementation File …
+
+1. Add a reference to the Facebook app ID
+
+             static NSString *kAppId = @"343598042347842";
+
+
+2. Synthesize the Facebook property
+
+             @synthesize facebook;
+
+3. Release the _facebook_ property in the dealloc method
+             [facebook release];
+
+
+4. Initialize Facebook instance in the application:didFinishLaunchingWithOptions: method just before the end of the method.
+
+             facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];
+             return YES;
+
+
+App Delegate Header File ...
+
+1. Add to header that this class will conform to the Facebook session delegate handler
+
+             FBSessionDelegate
+
+2. Declare methods that will be called when the login is clicked
+
+             - (void) login;
+
+
+
+App Delegate Implementation File …
+
+1. Implement the login SDK calls
+
+             - (void) login {
+                 NSArray *perms = [[NSArray alloc] initWithObjects:
+                     @"publish_actions", 
+                     @"email", 
+                     nil];
+                 [facebook authorize:perms];
+                 [perms release];
+             }
+
+
+
+View Controller Implementation File …
+
+1. Import the App Delegate header
+
+             #import "AppDelegate.h"
+
+
+2. Modify the playClicked: method to check the Facebook session before starting the game.
+
+             - (IBAction)playClicked:(id)sender {
+                 AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                 if ([[delegate facebook] isSessionValid]) {
+                     [self startGame];
+                 } else {
+                     [delegate login];
+                 }
+             }
+
+
+
+App Delegate Implementation ...
+
+1. Set up the entry point back into the app to make sure SSO works correctly
+
+             // Pre 4.2 support
+             - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+                 return [facebook handleOpenURL:url]; 
+             }
+
+             // For 4.2+ support
+             - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+               sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+                 return [facebook handleOpenURL:url]; 
+             }
+
+2. Add the session delegate method implementations (change button labels, store session for re-use)
+
+
+             // Implement session delegate methods
+             - (void)fbDidLogin {
+                 self.viewController.welcomeLabel.text = @"Welcome ...";
+                 [self.viewController.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+                 [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+                 [defaults synchronize];
+             }
+
+             - (void)fbDidLogout {
+                 self.viewController.welcomeLabel.text = @"Welcome to Critical Mass";
+                 [self.viewController.playButton setTitle:@"Login to Play" forState:UIControlStateNormal];
+    
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults removeObjectForKey:@"FBAccessTokenKey"];
+                 [defaults removeObjectForKey:@"FBExpirationDateKey"];
+                 [defaults synchronize];
+             }
+
+             - (void)fbDidNotLogin:(BOOL)cancelled {
+             }
+
+             - (void)fbDidExtendToken:(NSString*)accessToken
+               expiresAt:(NSDate*)expiresAt {
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults setObject:accessToken forKey:@"FBAccessTokenKey"];
+                 [defaults setObject:expiresAt forKey:@"FBExpirationDateKey"];
+                 [defaults synchronize];
+             }
+
+
+             - (void)fbSessionInvalidated {
+             }
+
+
+3. When app first starts check session status and show logged in or logged out states, put this in code after Facebook instance initialized
+
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 if ([defaults objectForKey:@"FBAccessTokenKey"] 
+                     && [defaults objectForKey:@"FBExpirationDateKey"]) {
+                     facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+                     facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+                 }
+                 if ([facebook isSessionValid]) {
+                     [self fbDidLogin];
+                 } else {
+                     [self fbDidLogout];
+                 }
+
+
+**Add Facebook Social Channels**
+
+App Delegate Header File ... 
+
+1. Add that the app delegate conforms to Facebook Dialog Delegate 
+
+             FBDialogDelegate
+
+2. Add method that View Controller will call to invoke dialogs
+
+             - (void) apiDialogRequestsToMany;
+             - (void) apiDialogFeedUser;
+
+
+App Delegate Implementation File ... 
+
+1. Add method calls
+
+             - (void)apiDialogRequestsToMany {
+                 NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"Check out Critical Mass!",  @"message",
+                                   nil];
+    
+                 [facebook dialog:@"apprequests"
+                        andParams:params
+                      andDelegate:self];
+             }
+
+             - (void)apiDialogFeedUser {
+                 // Dialog parameters
+                 NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"I just did something awesome in Critical Mass!", @"caption",
+                                   @"http://www.bitdecay.net/labs/criticalmasscomplete/", @"link",
+                                   @"http://www.bitdecay.net/labs/criticalmasscomplete/criticalmass.png", @"picture",
+                                   nil];
+    
+                 [facebook dialog:@"feed"
+                        andParams:params
+                      andDelegate:self];
+    
+             }
+
+2. Add successful request or feed handler
+
+             - (NSDictionary*)parseURLParams:(NSString *)query {
+             	NSArray *pairs = [query componentsSeparatedByString:@"&"];
+             	NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+             	for (NSString *pair in pairs) {
+             		NSArray *kv = [pair componentsSeparatedByString:@"="];
+             		NSString *val =
+                     [[kv objectAtIndex:1]
+                      stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+             		[params setObject:val forKey:[kv objectAtIndex:0]];
+             	}
+                return params;
+             }
+
+             - (void)dialogCompleteWithUrl:(NSURL *)url {
+                 if (![url query]) {
+                     NSLog(@"User canceled dialog or there was an error");
+                     return;
+                 }
+    
+                 NSDictionary *params = [self parseURLParams:[url query]];
+                 if ([params objectForKey:@"request"]) {
+                     // Successful requests are returned in the form:
+                     // request=1001316103543&to[0]=100003086810435&to[1]=100001482211095
+                     NSLog(@"Request ID: %@", [params objectForKey:@"request"]);
+                 } else if ([params valueForKey:@"post_id"]) {
+                     // Successful feed posts will return a post_id parameter
+                     NSLog(@"Feed post ID: %@", [params valueForKey:@"post_id"]);
+                 }
+             }
+
+
+View Controller NIB File ... 
+
+1. Connect the "Invite" button to an Outlet named ''inviteButton'' and connect it to an Action named ''inviteClicked''
+
+2. Connect the "Brag" button to an Outlet named ''bragButton'' and connect it to an Action named ''bragClicked''
+
+
+View Controller Implementation File ... 
+
+1. Control when the button is shown
+
+             - (void) initGameUIState {
+                 [playButton setHidden:NO];
+                 [gameLabel setHidden:YES];
+                 [inviteButton setHidden:YES];
+                 [bragButton setHidden:YES];
+             }
+
+             - (void) gamePlayUIState:(BOOL) hide {
+                 [playButton setHidden:hide];
+                 [gameLabel setHidden:hide];
+                 [inviteButton setHidden:hide];
+                 [bragButton setHidden:hide];
+             }
+
+
+2. Implement the "click" action handlers
+
+             - (IBAction)inviteClicked:(id)sender {
+                 AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                 [delegate apiDialogRequestsToMany];
+             }
+
+             - (IBAction)bragClicked:(id)sender {
+                 AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                 [delegate apiDialogFeedUser];
+             }
+
+
+**Implement Code to Post Scores**
+
+App Delegate Header File ... 
+
+1. Create property for holding the user information that will be stored and used to update scores
+
+             @property (nonatomic, retain) NSMutableDictionary *userData;
+
+2. Add that this conforms to Facebook Request Delegate 
+
+             FBRequestDelegate
+
+
+App Delegate Implementation File ... 
+
+1. Synthesize user data variable
+
+             @synthesize userData;
+
+
+2. Release the variable in the dealloc method
+
+             [userData release];
+
+3. Define API call method and implement successful API callback handler
+
+             - (void)apiGraphMe {
+    
+                 NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"name",  @"fields",
+                                   nil];
+                 [facebook requestWithGraphPath:@"me" andParams:params andDelegate:self];
+             }
+
+
+4. Save the user's data for use when updating scores
+
+             - (void)request:(FBRequest *)request didLoad:(id)result {
+                 if ([result isKindOfClass:[NSArray class]] && ([result count] > 0)) {
+                     result = [result objectAtIndex:0];
+                 }
+                 if ([result objectForKey:@"name"]) {
+                     // Personal information API return callback
+                     userData = [[NSMutableDictionary alloc] initWithDictionary:result copyItems:YES];
+                     self.viewController.welcomeLabel.text = [NSString stringWithFormat:@"Welcome %@", [result objectForKey:@"name"]];
+                 }
+             }
+
+5. Modify the Facebook sessions log in delegate handler to make the call to the API to get user info
+
+             // Implement session delegate methods
+             - (void)fbDidLogin {
+                 self.viewController.welcomeLabel.text = @"Welcome ...";
+                 [self.viewController.playButton setTitle:@"Play" forState:UIControlStateNormal];
+    
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+                 [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+                 [defaults synchronize];
+    
+                 // Personalize
+                 [self apiGraphMe];
+             }
+
+View Controller Header File ... 
+
+1. Add variables that will be used when the server endpoint is invoked.
+
+
+             @property (retain, nonatomic) NSMutableData *receivedData;
+
+             @property (retain, nonatomic) NSURLConnection *scoresConnection;
+
+
+View Controller Implementation File ... 
+
+1. Synthesize new properties
+
+             @synthesize receivedData;
+             @synthesize scoresConnection;
+
+
+2. Cleanup the properties in the dealloc method
+
+    [scoresConnection cancel];
+    [scoresConnection release];
+    [receivedData release];
+
+
+3. Add a variable for the backend server score posting end point
+
+             static NSString *kBackEndServer = @"http://www.bitdecay.net/labs/criticalmasscomplete/server/savescore.php";
+
+
+4. Add a method that will call the scores endpoint
+
+             - (void) sendScore {
+                 AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                 NSString *uid = [[delegate userData] objectForKey:@"id"];
+                 NSURLRequest *urlRequest = [NSURLRequest requestWithURL:
+                                [NSURL URLWithString:
+                                 [NSString stringWithFormat:@"%@?score=%d&uid=%@",
+                                  kBackEndServer,
+                                  self.score,uid]]];
+    
+                 scoresConnection =[[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+             }
+
+5. Implement the NSURL connection methods to handle successes and failures
+
+             #pragma mark - NSURLConnectionDelegate
+             - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+                 receivedData = [[NSMutableData alloc] init];
+             }
+
+             - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+                 [receivedData appendData:data];
+             }
+
+             - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+                 return nil;
+             }
+
+             - (void) clearConnection {
+                 [receivedData release];
+                 receivedData = nil;
+                 [scoresConnection release];
+                 scoresConnection = nil;
+             }
+
+
+             - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+                 NSString* responseString = [[[NSString alloc] initWithData:receivedData
+                                                      encoding:NSUTF8StringEncoding]
+                                autorelease];
+                 NSLog(@"Response from scores update: %@",responseString);
+                 [self clearConnection];
+             }
+
+             - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+                 NSLog(@"Err message: %@", [[error userInfo] objectForKey:@"error_msg"]);
+                 NSLog(@"Err code: %d", [error code]);
+                 [self clearConnection];
+             }
+
+
+6. Call the score update method when the game has ended
+
+             - (void) endGame {
+                 if ([gameImageView isAnimating]) {
+                     [gameImageView stopAnimating];
+                 }
+                 [self gamePlayUIState:NO];
+    
+                 self.score = 100;
+                 gameLabel.text = [NSString stringWithFormat:@"Score: %d", self.score];
+                 [self sendScore];
+             }
+
+
+
+
+

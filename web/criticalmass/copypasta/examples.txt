@@ -1,0 +1,165 @@
+/**
+* Copyright 2012 Facebook, Inc.
+*
+* You are hereby granted a non-exclusive, worldwide, royalty-free license to
+* use, copy, modify, and distribute this software in source code or binary
+* form for use in connection with the web services and APIs provided by
+* Facebook.
+*
+* As with any software that integrates with the Facebook platform, your use
+* of this software is subject to the Facebook Developer Principles and
+* Policies [http://developers.facebook.com/policy/]. This copyright notice
+* shall be included in all copies or substantial portions of the software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+* THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+* DEALINGS IN THE SOFTWARE.
+*/
+
+// Step 1. Canvas Authorization via the PHP SDK
+
+// PHP SDK
+<?php
+  require 'server/fb-php-sdk/facebook.php';
+
+  $app_id = 'APP_ID';
+  $app_secret = 'APP_SECRET';
+  $app_namespace = 'criticalmasscomplete';
+  $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
+  $scope = 'email,publish_actions';
+
+  // Init the Facebook SDK
+  $facebook = new Facebook(array(
+    'appId'  => $app_id,
+    'secret' => $app_secret,
+  ));
+  
+  // Get the current user
+  $user = $facebook->getUser();
+
+  // If the user has not installed the app, redirect them to the Auth Dialog
+  if (!$user) {
+    $loginUrl = $facebook->getLoginUrl(array(
+      'scope' => $scope,
+      'redirect_uri' => $app_url,
+    ));
+    
+    print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
+  }
+?>
+
+// Step 1 (alternate). Mobile Web Authorization via the JavaScript SDK
+<div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+
+<script>
+  var appId = 'APP_ID';
+  var uid;
+
+  // Initialize the JS SDK
+  FB.init({
+    appId: appId,
+    cookie: true,
+  });
+
+  // Get the user's UID
+  FB.getLoginStatus(function(response) {
+    uid = response.authResponse.userID ? response.authResponse.userID : null;
+  });
+
+  function authUser() {
+    FB.login(function(response) {
+      uid = response.authResponse.userID ? response.authResponse.userID : null;
+    }, {scope:'email,publish_actions'});
+  }
+</script>
+
+// Replaced startGame in client/ui.js
+function startGame {
+  if(uid) {
+    initGame();
+    displayMenu(false);
+  }
+  else {
+    authUser();
+  }
+}
+
+// Add this into index.php too if you want to support both Canvas and Mobile Web
+FB.getLoginStatus(function(response) {
+  uid = response.authResponse.userID ? response.authResponse.userID : null;
+});
+
+// Step 2. Requests
+// Implement the JavaSctip SDK
+<div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+
+<script>
+  var appId = '<?php echo $facebook->getAppID() ?>';
+
+  // Initialize the JS SDK
+  FB.init({
+    appId: appId,
+    cookie: true,
+  });
+</script>
+
+function sendInvite() {
+  // Use the Facebook JS SDK to open a Request MFS Dialog
+  FB.ui({method: 'apprequests',
+    title: 'Play Critical Mass with me!',
+    message: 'Been having a blast playing Critical Mass, come check it out.',
+  }, fbCallback);
+}
+  
+function fbCallback(response) {
+  console.log(response);
+}
+
+// Delete multiple Requests on Accept in PHP
+if(isset($_REQUEST['request_ids'])) {
+  $requestIDs = explode(',' , $_REQUEST['request_ids']);
+  foreach($requestIDs as $requestID) {
+    try {
+      $delete_success = $facebook->api('/' . $requestID, 'DELETE');
+    } catch(FacebookAPIException $e) {
+      error_log($e);
+    }
+  }
+}
+    
+// Step 3. Feed
+function sendBrag() {
+  var messageStr = 'I just reached ' + gFinalScore + ' in Critical Mass!';
+
+  FB.ui({ method: 'feed',
+    caption: messageStr,
+    picture: 'http://www.bitdecay.net/labs/criticalmasscomplete/criticalmass.png',
+    name: 'Play Critical Mass Now',
+    link: 'http://apps.facebook.com/criticalmasscomplete'
+  }, fbCallback);
+}
+
+// Step 4. Save a Score
+  $.ajax({
+    type: 'POST',
+    async: false,
+    url: 'server/savescore.php' + '?score=' + gFinalScore,
+    success: function(response) {
+      console.log(response);
+      if(response == '0')
+        alert('Error saving score!');
+    }
+  });
+
+// Step 5. Load a leaderboard
+function leaderboardInit() {
+  FB.api('/' + appId + '/scores', function(response) {
+    createLeaderboard(response.data)
+  });
+}

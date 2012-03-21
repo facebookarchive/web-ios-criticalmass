@@ -1,0 +1,142 @@
+// Step 1. Canvas Authorization via the PHP SDK
+
+// PHP SDK
+<?php
+  require 'fb-php-sdk/facebook.php';
+
+  $app_id = '343598042347842';
+  $app_secret = '88300f2ad82f10bf1232f5c1958a2780';
+  $app_namespace = 'criticalmasscomplete';
+  $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
+  $scope = 'email,publish_actions';
+
+  // Init the Facebook SDK
+  $facebook = new Facebook(array(
+    'appId'  => $app_id,
+    'secret' => $app_secret,
+  ));
+  
+  // Get the current user
+  $user = $facebook->getUser();
+
+  // If the user has not installed the app, redirect them to the Auth Dialog
+  if (!$user) {
+    $loginUrl = $facebook->getLoginUrl(array(
+      'scope' => $scope,
+      'redirect_uri' => $app_url,
+    ));
+    
+    print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
+  }
+?>
+
+// JS SDK
+<div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+
+<script>
+  var appId = '<?php echo $facebook->getAppID() ?>';
+  var uid;
+
+  // Initialize the JS SDK
+  FB.init({
+    appId: appId,
+    cookie: true,
+  });
+
+  // Get the user's UID and first name
+  FB.getLoginStatus(function(response) {
+    uid = response.authResponse.userID ? response.authResponse.userID : null;
+  });
+</script>
+
+// Step 1 (alternate). Mobile Web Authorization via the JavaScript SDK
+<script>
+  var appId = '343598042347842';
+  var uid;
+
+  // Initialize the JS SDK
+  FB.init({
+    appId: appId,
+    cookie: true,
+  });
+
+  // Get the user's UID and first name
+  FB.getLoginStatus(function(response) {
+    uid = response.authResponse.userID ? response.authResponse.userID : null;
+    getUserFirstName();
+  });
+
+  function authUser() {
+    FB.login(function(response) {
+      uid = response.authResponse.userID ? response.authResponse.userID : null;
+      getUserFirstName();
+    }, {scope:'email,publish_actions'});     
+  }
+</script>
+
+// in ui.js
+
+if(uid) {
+  initGame();
+  displayMenu(false);
+}
+else {
+  authUser();
+}
+
+// Step 2. Requests
+  function inviteInit() {
+    // Use the Facebook JS SDK to open a Request MFS Dialog
+    FB.ui({method: 'apprequests',
+      title: 'My Great Invite',
+      message: 'Check out Critical Mass!',
+    }, fbCallback);
+  }
+  
+  function fbCallback(response) {
+    console.log(response);
+  }
+
+// Delete multiple Requests on Accept
+  if(isset($_REQUEST['request_ids'])) {
+    $requestIDs = explode(',' , $_REQUEST['request_ids']);
+    foreach($requestIDs as $requestID) {
+      try {
+        $delete_success = $facebook->api('/' . $requestID, 'DELETE');
+      } catch(FacebookAPIException $e) {
+        error_log($e);
+      }
+    }
+  }
+    
+// Step 3. Feed
+function bragInit() {
+  var messageStr = 'I just reached ' + gFinalScore + ' in Critical Mass!';
+
+  FB.ui({ method: 'feed',
+    caption: messageStr,
+    name: 'Play Critical Mass Now',
+    picture: 'http://www.bitdecay.net/labs/criticalmasscanvas/criticalmass.png',
+    link: 'http://app.facebook.com/criticalmasscanvas'
+  }, fbCallback);
+}
+
+// Step 4. Save a Score
+  $.ajax({
+    type: 'POST',
+    async: false,
+    url: 'server/savescore.php' + '?score=' + gFinalScore,
+    success: function(response) {
+      console.log(response);
+      if(response == '0')
+        alert('Error saving score!');
+    }
+  });
+
+// Step 5. Load a leaderboard
+function leaderboardInit() {
+  FB.api('/' + appId + '/scores', function(response) {
+    createLeaderboard(response.data)
+  });
+}

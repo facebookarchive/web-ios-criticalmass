@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30E22C6515015A8B00CDCEE3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E22C6315015A8B00CDCEE3 /* Icon.png */; };
+		30E22C6615015A8B00CDCEE3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E22C6415015A8B00CDCEE3 /* Icon@2x.png */; };
+		30F80B0114EC221300F248EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F80B0014EC221300F248EF /* UIKit.framework */; };
+		30F80B0314EC221300F248EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F80B0214EC221300F248EF /* Foundation.framework */; };
+		30F80B0514EC221300F248EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F80B0414EC221300F248EF /* CoreGraphics.framework */; };
+		30F80B0B14EC221300F248EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B0914EC221300F248EF /* InfoPlist.strings */; };
+		30F80B0D14EC221300F248EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F80B0C14EC221300F248EF /* main.m */; };
+		30F80B1114EC221300F248EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F80B1014EC221300F248EF /* AppDelegate.m */; };
+		30F80B1414EC221300F248EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F80B1314EC221300F248EF /* ViewController.m */; };
+		30F80B1714EC221300F248EF /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B1514EC221300F248EF /* ViewController.xib */; };
+		30F80B2814EC294200F248EF /* criticalmass_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B2314EC294200F248EF /* criticalmass_1.png */; };
+		30F80B2914EC294200F248EF /* criticalmass_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B2414EC294200F248EF /* criticalmass_2.png */; };
+		30F80B2A14EC294200F248EF /* criticalmass_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B2514EC294200F248EF /* criticalmass_3.png */; };
+		30F80B2B14EC294200F248EF /* criticalmass_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B2614EC294200F248EF /* criticalmass_4.png */; };
+		30F80B2C14EC294200F248EF /* criticalmass_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B2714EC294200F248EF /* criticalmass_5.png */; };
+		30F80B4F14EC98E700F248EF /* criticalmass_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4514EC98E700F248EF /* criticalmass_6.png */; };
+		30F80B5014EC98E700F248EF /* criticalmass_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4614EC98E700F248EF /* criticalmass_7.png */; };
+		30F80B5114EC98E700F248EF /* criticalmass_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4714EC98E700F248EF /* criticalmass_8.png */; };
+		30F80B5214EC98E700F248EF /* criticalmass_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4814EC98E700F248EF /* criticalmass_9.png */; };
+		30F80B5314EC98E700F248EF /* criticalmass_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4914EC98E700F248EF /* criticalmass_10.png */; };
+		30F80B5414EC98E700F248EF /* criticalmass_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4A14EC98E700F248EF /* criticalmass_11.png */; };
+		30F80B5514EC98E700F248EF /* criticalmass_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4B14EC98E700F248EF /* criticalmass_12.png */; };
+		30F80B5614EC98E700F248EF /* criticalmass_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4C14EC98E700F248EF /* criticalmass_13.png */; };
+		30F80B5714EC98E700F248EF /* criticalmass_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4D14EC98E700F248EF /* criticalmass_14.png */; };
+		30F80B5814EC98E700F248EF /* criticalmass_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F80B4E14EC98E700F248EF /* criticalmass_15.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30E22C6315015A8B00CDCEE3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		30E22C6415015A8B00CDCEE3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		30F80AFC14EC221300F248EF /* CriticalMass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CriticalMass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F80B0014EC221300F248EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		30F80B0214EC221300F248EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		30F80B0414EC221300F248EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		30F80B0814EC221300F248EF /* CriticalMass-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CriticalMass-Info.plist"; sourceTree = "<group>"; };
+		30F80B0A14EC221300F248EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30F80B0C14EC221300F248EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30F80B0E14EC221300F248EF /* CriticalMass-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CriticalMass-Prefix.pch"; sourceTree = "<group>"; };
+		30F80B0F14EC221300F248EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		30F80B1014EC221300F248EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		30F80B1214EC221300F248EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		30F80B1314EC221300F248EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		30F80B1614EC221300F248EF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		30F80B2314EC294200F248EF /* criticalmass_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_1.png; sourceTree = "<group>"; };
+		30F80B2414EC294200F248EF /* criticalmass_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_2.png; sourceTree = "<group>"; };
+		30F80B2514EC294200F248EF /* criticalmass_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_3.png; sourceTree = "<group>"; };
+		30F80B2614EC294200F248EF /* criticalmass_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_4.png; sourceTree = "<group>"; };
+		30F80B2714EC294200F248EF /* criticalmass_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_5.png; sourceTree = "<group>"; };
+		30F80B4514EC98E700F248EF /* criticalmass_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_6.png; sourceTree = "<group>"; };
+		30F80B4614EC98E700F248EF /* criticalmass_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_7.png; sourceTree = "<group>"; };
+		30F80B4714EC98E700F248EF /* criticalmass_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_8.png; sourceTree = "<group>"; };
+		30F80B4814EC98E700F248EF /* criticalmass_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_9.png; sourceTree = "<group>"; };
+		30F80B4914EC98E700F248EF /* criticalmass_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_10.png; sourceTree = "<group>"; };
+		30F80B4A14EC98E700F248EF /* criticalmass_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_11.png; sourceTree = "<group>"; };
+		30F80B4B14EC98E700F248EF /* criticalmass_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_12.png; sourceTree = "<group>"; };
+		30F80B4C14EC98E700F248EF /* criticalmass_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_13.png; sourceTree = "<group>"; };
+		30F80B4D14EC98E700F248EF /* criticalmass_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_14.png; sourceTree = "<group>"; };
+		30F80B4E14EC98E700F248EF /* criticalmass_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = criticalmass_15.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30F80AF914EC221300F248EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F80B0114EC221300F248EF /* UIKit.framework in Frameworks */,
+				30F80B0314EC221300F248EF /* Foundation.framework in Frameworks */,
+				30F80B0514EC221300F248EF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30F80AF114EC221200F248EF = {
+			isa = PBXGroup;
+			children = (
+				30F80B0614EC221300F248EF /* CriticalMass */,
+				30F80AFF14EC221300F248EF /* Frameworks */,
+				30F80AFD14EC221300F248EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30F80AFD14EC221300F248EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30F80AFC14EC221300F248EF /* CriticalMass.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30F80AFF14EC221300F248EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30F80B0014EC221300F248EF /* UIKit.framework */,
+				30F80B0214EC221300F248EF /* Foundation.framework */,
+				30F80B0414EC221300F248EF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30F80B0614EC221300F248EF /* CriticalMass */ = {
+			isa = PBXGroup;
+			children = (
+				30F80B0F14EC221300F248EF /* AppDelegate.h */,
+				30F80B1014EC221300F248EF /* AppDelegate.m */,
+				30F80B1214EC221300F248EF /* ViewController.h */,
+				30F80B1314EC221300F248EF /* ViewController.m */,
+				30F80B1514EC221300F248EF /* ViewController.xib */,
+				30F80B0714EC221300F248EF /* Supporting Files */,
+			);
+			path = CriticalMass;
+			sourceTree = "<group>";
+		};
+		30F80B0714EC221300F248EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30F80B2214EC292000F248EF /* Images */,
+				30F80B0814EC221300F248EF /* CriticalMass-Info.plist */,
+				30F80B0914EC221300F248EF /* InfoPlist.strings */,
+				30F80B0C14EC221300F248EF /* main.m */,
+				30F80B0E14EC221300F248EF /* CriticalMass-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30F80B2214EC292000F248EF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				30E22C6315015A8B00CDCEE3 /* Icon.png */,
+				30E22C6415015A8B00CDCEE3 /* Icon@2x.png */,
+				30F80B4514EC98E700F248EF /* criticalmass_6.png */,
+				30F80B4614EC98E700F248EF /* criticalmass_7.png */,
+				30F80B4714EC98E700F248EF /* criticalmass_8.png */,
+				30F80B4814EC98E700F248EF /* criticalmass_9.png */,
+				30F80B4914EC98E700F248EF /* criticalmass_10.png */,
+				30F80B4A14EC98E700F248EF /* criticalmass_11.png */,
+				30F80B4B14EC98E700F248EF /* criticalmass_12.png */,
+				30F80B4C14EC98E700F248EF /* criticalmass_13.png */,
+				30F80B4D14EC98E700F248EF /* criticalmass_14.png */,
+				30F80B4E14EC98E700F248EF /* criticalmass_15.png */,
+				30F80B2314EC294200F248EF /* criticalmass_1.png */,
+				30F80B2414EC294200F248EF /* criticalmass_2.png */,
+				30F80B2514EC294200F248EF /* criticalmass_3.png */,
+				30F80B2614EC294200F248EF /* criticalmass_4.png */,
+				30F80B2714EC294200F248EF /* criticalmass_5.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30F80AFB14EC221300F248EF /* CriticalMass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F80B1A14EC221300F248EF /* Build configuration list for PBXNativeTarget "CriticalMass" */;
+			buildPhases = (
+				30F80AF814EC221300F248EF /* Sources */,
+				30F80AF914EC221300F248EF /* Frameworks */,
+				30F80AFA14EC221300F248EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CriticalMass;
+			productName = CriticalMass;
+			productReference = 30F80AFC14EC221300F248EF /* CriticalMass.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30F80AF314EC221200F248EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 30F80AF614EC221200F248EF /* Build configuration list for PBXProject "CriticalMass" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 30F80AF114EC221200F248EF;
+			productRefGroup = 30F80AFD14EC221300F248EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30F80AFB14EC221300F248EF /* CriticalMass */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30F80AFA14EC221300F248EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F80B0B14EC221300F248EF /* InfoPlist.strings in Resources */,
+				30F80B1714EC221300F248EF /* ViewController.xib in Resources */,
+				30F80B2814EC294200F248EF /* criticalmass_1.png in Resources */,
+				30F80B2914EC294200F248EF /* criticalmass_2.png in Resources */,
+				30F80B2A14EC294200F248EF /* criticalmass_3.png in Resources */,
+				30F80B2B14EC294200F248EF /* criticalmass_4.png in Resources */,
+				30F80B2C14EC294200F248EF /* criticalmass_5.png in Resources */,
+				30F80B4F14EC98E700F248EF /* criticalmass_6.png in Resources */,
+				30F80B5014EC98E700F248EF /* criticalmass_7.png in Resources */,
+				30F80B5114EC98E700F248EF /* criticalmass_8.png in Resources */,
+				30F80B5214EC98E700F248EF /* criticalmass_9.png in Resources */,
+				30F80B5314EC98E700F248EF /* criticalmass_10.png in Resources */,
+				30F80B5414EC98E700F248EF /* criticalmass_11.png in Resources */,
+				30F80B5514EC98E700F248EF /* criticalmass_12.png in Resources */,
+				30F80B5614EC98E700F248EF /* criticalmass_13.png in Resources */,
+				30F80B5714EC98E700F248EF /* criticalmass_14.png in Resources */,
+				30F80B5814EC98E700F248EF /* criticalmass_15.png in Resources */,
+				30E22C6515015A8B00CDCEE3 /* Icon.png in Resources */,
+				30E22C6615015A8B00CDCEE3 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30F80AF814EC221300F248EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F80B0D14EC221300F248EF /* main.m in Sources */,
+				30F80B1114EC221300F248EF /* AppDelegate.m in Sources */,
+				30F80B1414EC221300F248EF /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		30F80B0914EC221300F248EF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30F80B0A14EC221300F248EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		30F80B1514EC221300F248EF /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30F80B1614EC221300F248EF /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30F80B1814EC221300F248EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		30F80B1914EC221300F248EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30F80B1B14EC221300F248EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CriticalMass/CriticalMass-Prefix.pch";
+				INFOPLIST_FILE = "CriticalMass/CriticalMass-Info.plist";
+				PRODUCT_NAME = CriticalMass;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		30F80B1C14EC221300F248EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CriticalMass/CriticalMass-Prefix.pch";
+				INFOPLIST_FILE = "CriticalMass/CriticalMass-Info.plist";
+				PRODUCT_NAME = CriticalMass;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30F80AF614EC221200F248EF /* Build configuration list for PBXProject "CriticalMass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F80B1814EC221300F248EF /* Debug */,
+				30F80B1914EC221300F248EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30F80B1A14EC221300F248EF /* Build configuration list for PBXNativeTarget "CriticalMass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F80B1B14EC221300F248EF /* Debug */,
+				30F80B1C14EC221300F248EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30F80AF314EC221200F248EF /* Project object */;
+}
