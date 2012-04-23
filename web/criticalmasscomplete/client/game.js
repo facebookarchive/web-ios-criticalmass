@@ -180,7 +180,6 @@ function gameOver() {
 
 function saveScore() {
   gFinalScore = gLevel * 15;
-  gFinalScore = 6500;
   
   $.ajax({
     type: 'POST',
