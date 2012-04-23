@@ -61,4 +61,22 @@ Step 5 Load a leaderboard of Facebook friends
   - Add leaderboardInit() in init() at line 46
 - The createLeaderboard() function and CSS classes should already be defined, to draw the leaderboard
 
+Step 6 Add Achievement API support
+- Create your achievement Object (server/goldmedal.php)
+  - Make sure to add your App ID here and update the URL to your server
+- Verify the Achievement Object in the Debug Tool (https://developers.facebook.com/tools/debug) and that everything looks good (no errors).
+- Register the Achievement for Critical Mass (docs: https://developers.facebook.com/docs/achievements/)
+  - POST https://graph.facebook.com/APP_ID/achievements
+    achievement=ACHIEVEMENT_OBJECT_URL
+    display_order=1
+    access_token=APP_ACCESS_TOKEN
+  - Note, this step only needs to be done once. Use curl or the Graph API Explorer: https://developers.facebook.com/tools/explorer
+- Copy three new methods in client/game.js (see criticalmasscomplete/client/game.js at line 199 - 239)
+  - checkIfAchievement()  // this will check the ingame logic to see if the user has meet the criteria for the achievement
+  - getAchievements()     // this will get the list of achievements a user has already earned from the Graph API
+  - saveAchievement()     // this will save the achievement for the user, similar to Scores in step 4
+- Create a new global var in client/game.js
+  - var gIsPlayerEligibleForAchievement = true; at line 39.  We will use this to check/set if the user is eligible to earn the achievement (users can only earn an achievement once).
+- In core.js add a call to getAchievements() at line 47.  We will use this to check if the user has the achievement or not on game load.
+- Finally add checkIfAchievement() in client/game.js at line 308.  This will start the process to award an achievement if the user meets the criteria for it.
 Done!

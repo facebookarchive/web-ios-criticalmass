@@ -1,25 +1,3 @@
-/**
-* Copyright 2012 Facebook, Inc.
-*
-* You are hereby granted a non-exclusive, worldwide, royalty-free license to
-* use, copy, modify, and distribute this software in source code or binary
-* form for use in connection with the web services and APIs provided by
-* Facebook.
-*
-* As with any software that integrates with the Facebook platform, your use
-* of this software is subject to the Facebook Developer Principles and
-* Policies [http://developers.facebook.com/policy/]. This copyright notice
-* shall be included in all copies or substantial portions of the software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-* THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-* DEALINGS IN THE SOFTWARE.
-*/
-
 /* Game control variables */
 var gLevel = 6; //The starting level
 var gCircleSize = 5; //The size of the user initiated explosion
@@ -32,7 +10,7 @@ var gCircleMinDX = 2; //The size of the initial circles that are bouncing around
 var gCircleMinDY = 2; //The size of the initial circles that are bouncing around, in height
 var gExplosionTimeRate = 1; //How quickly the circle's explosion grows over time
 var gCircleTransparency = 0.6; //Transparency of the circles
-var gGameClockSetting = 5; //How much time the player has for each gameplay session (in seconds)
+var gGameClockSetting = 30; //How much time the player has for each gameplay session (in seconds)
 var gGameComplete = .30; //The percentage of circles does the user need to explode before advancing to the next level
 
 /* Debug */
@@ -57,6 +35,8 @@ var gCirclesDead = 0;
 
 var gCanvasWidth;
 var gCanvasHeight;
+
+var gIsPlayerEligibleForAchievement = true;
 
 //Determine the size of the viewport
 window.addEventListener('load', function () {
@@ -200,18 +180,62 @@ function gameOver() {
 
 function saveScore() {
   gFinalScore = gLevel * 15;
-
-   $.ajax({
+  gFinalScore = 6500;
+  
+  $.ajax({
     type: 'POST',
-    async: false,
+    async: true,
     url: 'server/savescore.php' + '?score=' + gFinalScore,
     success: function(response) {
-      console.log(response);
-      if(response == '0')
+      if(response == '0') {
         alert('Error saving score!');
+      } else {
+        console.log('Saved Score');
+      }
     }
   });
+}
 
+function checkIfAchievement() {
+  // if gCirclesDestroyed > 2 then attempt to award the Achievement
+  if(gCirclesDestroyed > 2 && gIsPlayerEligibleForAchievement) {
+
+    // Attempt to award the acheivement to the player
+    saveAchievement();
+  }
+}
+
+// This method will get the users achievements from Facebook and determine
+// if they are eligible to earn the '3 Ball Combo' achievements.
+// Achievements can only be achieved *once*.
+function getAchievements() {
+  FB.api('/me/achievements', function(response) {
+    for(var i = 0; i < response.data.length; i++) {
+      if(response.data[i].achievement.title == '3 Ball Combo') {
+        gIsPlayerEligibleForAchievement = false;
+        break;
+      }
+    }
+
+    console.log('Player Eligible for 3 Ball Combo: ' + gIsPlayerEligibleForAchievement);
+  });
+}
+
+function saveAchievement() {
+  $.ajax({
+    type: 'POST',
+    async: true,
+    url: 'server/saveachievement.php',
+    success: function(response) {
+      console.log(response);
+      if(response == '0') {
+        alert('Error saving achievement!');
+      } else {
+        console.log('Saved Achievement');
+        gIsPlayerEligibleForAchievement = false;
+      }
+    }
+  });
 }
 
 //Circle class
@@ -281,6 +305,7 @@ function circle() {
     
     if (this.destroyed == false) {
       gCirclesDestroyed += 1;
+      checkIfAchievement();
     }
     
     this.destroyed = true;

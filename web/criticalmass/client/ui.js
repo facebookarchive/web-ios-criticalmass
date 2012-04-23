@@ -88,7 +88,7 @@ function createLeaderboard(data) {
   leaderboardContainer.id = 'leaderboard_container';
   menuContainer.appendChild(leaderboardContainer);
   
-  for(var i = 0; i < data.length, i < 3; i++) {
+  for(var i = 0; i < Math.min(data.length, 3); i++) {
     var leaderboardItem = createLeaderboardItem(
       data[i].user.name.split(' ')[0],
       '//graph.facebook.com/' + data[i].user.id + '/picture',
