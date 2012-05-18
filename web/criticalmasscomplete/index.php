@@ -1,3 +1,4 @@
+<?php
 /**
 * Copyright 2012 Facebook, Inc.
 *
@@ -20,7 +21,6 @@
 * DEALINGS IN THE SOFTWARE.
 */
 
-<?php
   require 'server/fb-php-sdk/facebook.php';
 
   $app_id = 'APP_ID';
@@ -34,7 +34,7 @@
     'appId'  => $app_id,
     'secret' => $app_secret,
   ));
-  
+
   // Get the current user
   $user = $facebook->getUser();
 
@@ -44,10 +44,10 @@
       'scope' => $scope,
       'redirect_uri' => $app_url,
     ));
-    
+
     print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
   }
-  
+
   if(isset($_REQUEST['request_ids'])) {
     $requestIDs = explode(',' , $_REQUEST['request_ids']);
     foreach($requestIDs as $requestID) {
@@ -65,13 +65,13 @@
 <html>
 <head>
   <title>Critical Mass</title>
-  
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta property="og:image" content="http://www.mattwkelly.com/html5/critical-mass/critical_mass.png"/>
-  
+
   <link href="client/style.css" rel="stylesheet" type="text/css">
   <link rel="apple-touch-icon" href="http://www.mattwkelly.com/html5/critical-mass/critical_mass.png" />
 </head>
@@ -80,17 +80,17 @@
   <div id="fb-root"></div>
   <script src="//connect.facebook.net/en_US/all.js"></script>
 
-  <div id="stage">  
+  <div id="stage">
     <div id="gameboard">
       <canvas id="myCanvas"></canvas>
     </div>
   </div>
-  
+
   <script src="client/core.js"></script>
   <script src="client/game.js"></script>
   <script src="client/ui.js"></script>
   <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
-  
+
   <script>
     var appId = '<?php echo $facebook->getAppID() ?>';
 
@@ -99,7 +99,7 @@
       appId: appId,
       cookie: true,
     });
-    
+
     FB.getLoginStatus(function(response) {
       uid = response.authResponse.userID ? response.authResponse.userID : null;
     });

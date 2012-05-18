@@ -1,6 +1,6 @@
 <?php
     require 'fb-php-sdk/facebook.php';
-    
+
     $app_id = 'APP_ID';
     $app_secret = 'APP_SECRET';
 
@@ -10,12 +10,12 @@
     ));
 
     $user = $facebook->getUser();
-    
+
     // Special condition to support iOS clients
     if(!$user && (isset($_REQUEST['uid']))) {
       $user = $_REQUEST['uid'];
     }
-    
+
     $app_access_token = get_app_access_token($app_id, $app_secret);
     $facebook->setAccessToken($app_access_token);
 

@@ -163,3 +163,52 @@ function leaderboardInit() {
     createLeaderboard(response.data)
   });
 }
+
+// Step 6. Achievements
+In client/game.js
+
+line  39
+var gIsPlayerEligibleForAchievement = true;
+
+line 198
+function checkIfAchievement() {
+  // if gCirclesDestroyed > 2 then attempt to award the Achievement
+  if(gCirclesDestroyed > 2 && gIsPlayerEligibleForAchievement) {
+
+    // Attempt to award the acheivement to the player
+    saveAchievement();
+  }
+}
+
+// This method will get the users achievements from Facebook and determine
+// if they are eligible to earn the '3 Ball Combo' achievements.
+// Achievements can only be achieved *once*.
+function getAchievements() {
+  FB.api('/me/achievements', function(response) {
+    for(var i = 0; i < response.data.length; i++) {
+      if(response.data[i].achievement.title == '3 Ball Combo') {
+        gIsPlayerEligibleForAchievement = false;
+        break;
+      }
+    }
+
+    console.log('Player Eligible for 3 Ball Combo: ' + gIsPlayerEligibleForAchievement);
+  });
+}
+
+function saveAchievement() {
+  $.ajax({
+    type: 'POST',
+    async: true,
+    url: 'server/saveachievement.php',
+    success: function(response) {
+      console.log(response);
+      if(response == '0') {
+        alert('Error saving achievement!');
+      } else {
+        console.log('Saved Achievement');
+        gIsPlayerEligibleForAchievement = false;
+      }
+    }
+  });
+}

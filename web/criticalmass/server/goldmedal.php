@@ -16,7 +16,7 @@
     <img src='http://DOMAIN_NAME/criticalmasscomplete/server/goldmedal.png' />
     <div>Gold Medal - destroy 3 balls with a single explosion!</div>
     <div><a href="http://apps.facebook.com/APP_NAMESPACE/">Play Critical Mass Now!</a><div>
-  </div>  
+  </div>
 
 </body>
 </html>

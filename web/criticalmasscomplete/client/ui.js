@@ -15,14 +15,14 @@
 */
 
 function createMenu() {
-  var menuShim = document.createElement('div'); 
+  var menuShim = document.createElement('div');
   menuShim.id = 'menu_shim';
-  
+
   menuShim.style.width = gCanvasWidth + "px";
   menuShim.style.height = gCanvasHeight + "px";
   stage.appendChild(menuShim);
-  
-  var menuContainer = document.createElement('div'); 
+
+  var menuContainer = document.createElement('div');
   menuContainer.id = 'menu_container';
   stage.appendChild(menuContainer);
   menuContainer.style.width = stage.style.width;
@@ -38,28 +38,28 @@ function createMenu() {
   createButton('invite', 'sendInvite');
   createButton('brag', 'sendBrag');
 
-  var welcomeMsgContainer = document.createElement('div'); 
+  var welcomeMsgContainer = document.createElement('div');
   welcomeMsgContainer.id = 'welcome_msg_container';
   stage.appendChild(welcomeMsgContainer);
-  
+
   var welcomeMsg = document.createElement('div');
   var welcomeMsgStr = 'Welcome to Critical Mass';
   welcomeMsg.innerHTML = welcomeMsgStr;
   welcomeMsg.id = 'welcome_msg';
   welcomeMsgContainer.appendChild(welcomeMsg);
-  
+
   function createButton(name, handler) {
-    var button = document.createElement('div'); 
+    var button = document.createElement('div');
     button.className = 'menu_item';
     button.id = name;
     button.setAttribute('onclick', 'javascript:' + handler + '()');
     menuContainer.appendChild(button);
-    
-    var buttonText = document.createElement('span'); 
+
+    var buttonText = document.createElement('span');
     buttonText.innerHTML = name;
     button.appendChild(buttonText);
     buttonText.className = 'title';
-  } 
+  }
 }
 
 function displayMenu(display) {
@@ -67,7 +67,7 @@ function displayMenu(display) {
     document.getElementById('play').style.display = 'block';
     document.getElementById('menu_container').style.display = 'block';
     document.getElementById('menu_shim').style.display = 'block';
-    
+
     clearInterval(gDrameGameInterval);
   }
   else {
@@ -83,7 +83,7 @@ function createLeaderboard(data) {
   var leaderboardContainer = document.createElement('div');
   leaderboardContainer.id = 'leaderboard_container';
   menuContainer.appendChild(leaderboardContainer);
-  
+
   for(var i = 0; i < Math.min(data.length, 3); i++) {
     var leaderboardItem = createLeaderboardItem(
       data[i].user.name.split(' ')[0],
@@ -93,7 +93,7 @@ function createLeaderboard(data) {
     leaderboardItem.id = 'item' + i;
     leaderboardItem.style.left = 0 + (80 * i) + 'px';
   }
-   
+
    function createLeaderboardItem(name, profileImgURL, score) {
      var leaderboardItem = document.createElement('div');
      leaderboardItem.className = 'leaderboard_item';
@@ -106,12 +106,12 @@ function createLeaderboard(data) {
      var scoreText = document.createElement('div');
      scoreText.className = 'item_text';
      scoreText.innerHTML = score;
-     
+
      leaderboardItem.appendChild(profileImage);
      leaderboardItem.appendChild(nameText);
      leaderboardItem.appendChild(scoreText);
      leaderboardContainer.appendChild(leaderboardItem);
-     
+
      return leaderboardItem;
    }
 }
@@ -132,7 +132,7 @@ function startGame() {
   } else {
     authUser();
   }
-  
+
 }
 
 function sendInvite() {
@@ -142,7 +142,7 @@ function sendInvite() {
     message: 'Been having a blast playing Critical Mass, come check it out.',
   }, fbCallback);
 }
- 
+
 function sendBrag() {
   var messageStr = 'I just reached ' + gFinalScore + ' in Critical Mass!';
 
@@ -152,8 +152,8 @@ function sendBrag() {
     name: 'Play Critical Mass Now',
     link: 'http://apps.facebook.com/criticalmasscomplete'
   }, fbCallback);
-} 
-  
+}
+
 function fbCallback(response) {
   console.log(response);
 }

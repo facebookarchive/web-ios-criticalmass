@@ -47,7 +47,7 @@ window.addEventListener('load', function () {
     var gameboard = document.getElementById('gameboard');
     gameboard.style.width = gCanvasWidth + 'px';
     gameboard.style.height = gCanvasHeight + 'px';
-    
+
   }, 10)
 }, true);
 
@@ -57,12 +57,12 @@ function initGame() {
   if (gGameClock <= 0) {
     resetGame();
   }
-  
+
   //Start the loop to draw the game to the screen
   gDrameGameInterval = setInterval(draw, 15);
-  
+
   levelCheck();
-  
+
   gCanvasElement = document.getElementById('myCanvas');
   gCanvasElement.ontouchstart = function (e){
     var cell = getCursorPosition(e);
@@ -70,16 +70,16 @@ function initGame() {
   gCanvasElement.onclick = function (e){
     var cell = getCursorPosition(e);
   }
-  
+
   startGameClock();
 }
 
 //Resets the user's game
 function resetGame() {
   gInitGame = false;
-  
+
   gGameClock = gGameClockSetting;
-  
+
   hideScore();
 }
 
@@ -90,25 +90,25 @@ function draw() {
   gContext.canvas.width = gCanvasWidth;
   gContext.canvas.height = gCanvasHeight;
   gContext.clearRect(0, 0, gCanvasWidth, gCanvasHeight);
-  
+
   //The game has ended, so remove all of the circles from the screen
   if (gInitGame == false) {
     delete gCircles;
     gCircles = Array();
-  
+
     while (gCircles.length <= gLevel - 1) {
       x = gCircles.length;
       gCircles[x] = new circle();
-      
-      gCircles[x].init(Math.random()*gCircleMaxDX-Math.random()*gCircleMinDX, 
-                      Math.random()*gCircleMaxDY-Math.random()*gCircleMinDY, 
-                      Math.floor(Math.random()*gCanvasWidth), 
+
+      gCircles[x].init(Math.random()*gCircleMaxDX-Math.random()*gCircleMinDX,
+                      Math.random()*gCircleMaxDY-Math.random()*gCircleMinDY,
+                      Math.floor(Math.random()*gCanvasWidth),
                       Math.floor(Math.random()*gCanvasHeight));
     }
-    
+
     gInitGame = true;
   }
-  
+
   for (x in gCircles) {
     gCircles[x].draw();
   }
@@ -116,7 +116,7 @@ function draw() {
 
 function startGameClock() {
   gameClock();
-  
+
   gGameClockIntervalID = setInterval(function () {
     gameClock();
   }, 1000);
@@ -129,32 +129,32 @@ function stopGameClock() {
 //Used in a loop to update the game clock
 function gameClock() {
   //decrement game clock
-  gGameClock -= 1; 
-  
+  gGameClock -= 1;
+
   if (!document.getElementById('game_clock')) {
-    var gameClock = document.createElement('div'); 
+    var gameClock = document.createElement('div');
   }
   else {
     var gameClock = document.getElementById('game_clock');
   }
-  
+
   if (gGameClock >= 60) {
     gGameClockSecs = gGameClock - 60;
-    
+
     if (gGameClockSecs < 10) {
       gGameClockSecs = "0" + gGameClockSecs;
     }
-    
+
     gGameClockText = "1:" + gGameClockSecs;
   }
   else {
     gGameClockText = gGameClock;
   }
-  
+
   gameClock.innerHTML = gGameClockText + ' seconds';
   gameClock.id = 'game_clock';
   stage.appendChild(gameClock);
-  
+
   //check to see if game is over
   if (gGameClock <= 0) {
     gameOver();
@@ -167,20 +167,20 @@ function pauseGame() {
 
 function gameOver() {
   stopGameClock();
-  
+
   //set the score
   saveScore();
 
   //show score
   displayScore(gFinalScore);
-  
+
   //show menu
   displayMenu(true);
 }
 
 function saveScore() {
   gFinalScore = gLevel * 15;
-  
+
   $.ajax({
     type: 'POST',
     async: true,
@@ -251,47 +251,47 @@ function circle() {
     this.rgb_r = Math.floor(Math.random()*216+40);
     this.rgb_g = Math.floor(Math.random()*216+40);
     this.rgb_b = Math.floor(Math.random()*216+40);
-    
+
     if (width) {
       this.width = width;
-    } 
+    }
     else {
       this.width = gCircleSize;
     }
 
     if (height) {
       this.height = height;
-    } 
+    }
     else {
       this.height = gCircleSize;
     }
 
     this.destroyed = false;
   }
-  
+
   //Explode the circle
   this.explode = function() {
   //Has reached max explosion, so stop it
     if (this.width >= gCircleExplosionSize && this.shrink == false) {
       this.explosion_time = this.explosion_time + gExplosionTimeRate;
-      
+
       //Explosion has finished, now start to shrink it
       if (this.explosion_time >= gCircleExplosionTime) {
         this.width = this.width - gCircleExplosionGrowthRate;
         this.shrink = true;
       }
-    } 
+    }
     else {
       //Explosion over
       if (this.shrink == true && this.width > 0) {
         this.width = this.width - gCircleExplosionGrowthRate;
-        
+
         if (this.width <= 1) {
           if (this.dead == false) {
             gCirclesDead += 1;
             this.dead = true;
           }
-          
+
           if (gCirclesDead >= gCirclesDestroyed) {
             levelCheck();
           }
@@ -301,14 +301,14 @@ function circle() {
         this.width = this.width + gCircleExplosionGrowthRate;
       }
     }
-    
+
     if (this.destroyed == false) {
       gCirclesDestroyed += 1;
       checkIfAchievement();
     }
-    
+
     this.destroyed = true;
-    
+
     if (this.dead == false) {
       //check to see if it makes impact with other circles
       for (x in gCircles) {
@@ -322,7 +322,7 @@ function circle() {
       }
     }
   }
-  
+
   //main function that is looped to draw the circles
   this.draw = function() {
     //if the circle hasn't exploded yet
@@ -339,7 +339,7 @@ function circle() {
     else {
       this.explode();
     }
-    
+
     //draw the circle
     if (this.width > 0 && this.dead == false) {
       gContext.beginPath();
@@ -354,20 +354,20 @@ function circle() {
 //Detects overlap between two circles
 function overlap(circle_1, circle_2) {
   delta = (circle_1.width + 40) / 2;
-  
+
   if (Math.abs(dx = circle_1.x - circle_2.x) > delta) return false
   if (Math.abs(dy = circle_1.y - circle_2.y) > delta) return false
-  
+
   return true;
 }
 
 function getCursorPosition(e) {
   var x;
   var y;
-  
+
   if (typeof(e.touches) !== 'undefined') {
     var touch = e.touches[0];
-    
+
     if (touch.pageX != undefined && touch.pageY != undefined) {
       x = touch.pageX;
       y = touch.pageY;
@@ -385,7 +385,7 @@ function getCursorPosition(e) {
       y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
   }
-  
+
   x -= stage.offsetLeft;
   y -= stage.offsetTop;
 
@@ -412,14 +412,14 @@ function levelCheck() {
   if (gCirclesDestroyed > 0) {
     levelReset();
   }
-  
+
   levelTitle();
 }
 
 function levelAdvance() {
   gInitGame = false;
   gLevel = gLevel + 1;
-  
+
   gHasAttacked = false;
   gCirclesDestroyed = 0;
   gCirclesDead = 0;
@@ -427,12 +427,12 @@ function levelAdvance() {
 
 function levelTitle() {
   if (!document.getElementById('level_title')) {
-    var level_text = document.createElement('div'); 
+    var level_text = document.createElement('div');
   }
   else {
     var level_text = document.getElementById('level_title');
   }
-  
+
   level_text.innerHTML = gLevel + " Balls";
   level_text.id = 'level_title';
   stage.appendChild(level_text);
@@ -443,5 +443,5 @@ function levelReset() {
   gCirclesDestroyed = 0;
   gCirclesDead = 0;
   gInitGame = false;
-  
+
 }
