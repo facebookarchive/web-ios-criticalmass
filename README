@@ -1,16 +1,34 @@
-GDC 2012 Samples
+# Critical Mass
 
-This project includes the GDC 2012 sample apps and code that was presented during the Facebook Developer Day on March 5th, 2012.
+A simple social web and iOS game.  Shows many core components to Facebook integration, including friend leaderboards, achievements, sending invites to friends, and posting to a user's Timeline.
 
-Talk                                                                            Source Directory
-5 essential steps for making your web or mobile game successful on Facebook     web / ios
-Growing monetization and engagement for games on Facebook.com:                  credits
-Winning in mobile with Facebook's social distribution:                          ios
+Authors: Matt Kelly (mattwkelly), Constantin Koumouzelis (koumouz), Christine Abernathy (caabernathy)
 
+## Demo
 
-License
+Nothing yet.
 
-Copyright 2012 Facebook, Inc.
+## Installing
+
+https://developers.facebook.com/docs/guides/games/getting-started/
+
+## Documentation
+
+https://developers.facebook.com/docs/guides/games/getting-started/
+
+## Additional Resources
+
+Games documentation can be found at https://developers.facebook.com/docs/guides/games/
+
+## Contributing
+
+All contributors must agree to and sign the [Facebook CLA](https://developers.facebook.com/opensource/cla) prior to submitting Pull Requests. We cannot accept Pull Requests until this document is signed and submitted.
+
+## License
+
+[INCLUDE ANY CREATIVE COMMONS LICENSES HERE]
+
+Copyright 2012-present Facebook, Inc.
 
 You are hereby granted a non-exclusive, worldwide, royalty-free license to use, copy, modify, and distribute this software in source code or binary form for use in connection with the web services and APIs provided by Facebook.
 
