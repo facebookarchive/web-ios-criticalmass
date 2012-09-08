@@ -181,16 +181,16 @@ function gameOver() {
 function saveScore() {
   gFinalScore = gLevel * 15;
 
-  $.ajax({
-    type: 'POST',
-    async: true,
-    url: 'server/savescore.php' + '?score=' + gFinalScore,
-    success: function(response) {
-      if(response == '0') {
-        alert('Error saving score!');
-      } else {
-        console.log('Saved Score');
-      }
+  var params = {
+    score: gFinalScore
+  };
+
+  FB.api('/me/scores', 'post', params, function(response) {
+    console.log(response);
+    if (!response || response.error) {
+      alert('Error saving score!');
+    } else {
+      console.log('Saved Score');
     }
   });
 }
@@ -221,18 +221,17 @@ function getAchievements() {
 }
 
 function saveAchievement() {
-  $.ajax({
-    type: 'POST',
-    async: true,
-    url: 'server/saveachievement.php',
-    success: function(response) {
-      console.log(response);
-      if(response == '0') {
-        alert('Error saving achievement!');
-      } else {
-        console.log('Saved Achievement');
-        gIsPlayerEligibleForAchievement = false;
-      }
+  var params = {
+    achievement: 'http://DOMAIN_NAME/criticalmasscomplete/server/goldmedal.php'
+  };
+
+  FB.api('/me/achievements', 'post', params, function(response) {
+    console.log(response);
+    if (!response || response.error) {
+      alert('Error saving achievement!');
+    } else {
+      console.log('Saved Achievement');
+      gIsPlayerEligibleForAchievement = false;
     }
   });
 }
