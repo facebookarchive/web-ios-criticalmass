@@ -1,0 +1,71 @@
+{
+  "title": "Critical Mass",
+  "platform_features": [
+    {
+      "feature_group": "graph_api",
+      "features": [
+        {
+          "name": "achievements"
+        },
+        {
+          "name": "scores"
+        }
+      ]
+    },
+    {
+      "feature_group": "dialogs",
+      "features": [
+        {
+          "name": "requests"
+        },
+        {
+          "name": "feed"
+        }
+      ]
+    },
+    {
+      "feature_group": "app_center"
+    }
+  ],
+  "platforms": [
+    {
+      "name": "html"
+    },
+    {
+      "name": "php"
+    },
+    {
+      "name": "ios"
+    }
+  ],
+  "sdks": [
+    {
+      "name": "javascript",
+      "version": "671604"
+    },
+    {
+      "name": "php",
+      "version": "3.0"
+    },
+    {
+      "name": "ios",
+      "version": "2.0"
+    }
+  ],
+  "screenshots": [
+    {
+      "url": "screenshots/sample_critical_mass_1.png"
+    },
+    {
+      "url": "screenshots/sample_critical_mass_2.png"
+    },
+    {
+      "url": "screenshots/sample_critical_mass_3.png"
+    }
+  ],
+  "tutorial": {
+    "url": "https://developers.facebook.com/docs/guides/games/getting-started/"
+  },
+  "featured": false,
+  "deprecated": false
+}
