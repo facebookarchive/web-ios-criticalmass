@@ -29,7 +29,7 @@
   ],
   "platforms": [
     {
-      "name": "html"
+      "name": "html5"
     },
     {
       "name": "php"
