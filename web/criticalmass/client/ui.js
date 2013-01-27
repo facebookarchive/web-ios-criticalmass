@@ -1,4 +1,10 @@
-/**
+ createLeaderboard() 
+ function leaderboardInit() {
+   FB.api('/' + appId + '/scores', function(response) {
+     createLeaderboard(response.data)
+   });
+ }
+ /**
 * Copyright 2012 Facebook, Inc.
 *
 * You are hereby granted a non-exclusive, worldwide, royalty-free license to
