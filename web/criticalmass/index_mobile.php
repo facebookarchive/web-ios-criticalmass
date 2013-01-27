@@ -1,4 +1,6 @@
-<!--
+FB.init is used to initialize the JavaScript SDK. You only need to pass in your App ID, not your App Secret, which should never be stored client side. Next we attempt to retrive the User ID for the current user with FB.getLoginStatus. If uid was not set then the user has not authorized the game. Finally we create a new function called authUser that we can use to Authorize the user. When invoked this function will call FB.login from the JavaScript SDK. This will pop up a new window with the Login Dialog.
+
+<!--authUser 
 * Copyright 2012 Facebook, Inc.
 *
 * You are hereby granted a non-exclusive, worldwide, royalty-free license to
