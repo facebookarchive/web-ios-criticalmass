@@ -1,4 +1,14 @@
-<!--
+  DELETE https://graph.facebook.com/REQUEST_ID?access_token=USER_ACCESS_TOKENif(isset($_REQUEST['request_ids'])) {
+   $requestIDs = explode(',' , $_REQUEST['request_ids']);
+   foreach($requestIDs as $requestID) {
+     try {
+       $delete_success = $facebook->api('/' . $requestID, 'DELETE');
+     } catch(FacebookAPIException $e) {
+       error_log($e);
+     }
+   }
+ }
+ <!--
 * Copyright 2012 Facebook, Inc.
 *
 * You are hereby granted a non-exclusive, worldwide, royalty-free license to
@@ -32,7 +42,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta property="og:image" content="http://www.mattwkelly.com/html5/critical-mass/critical_mass.png"/>
 
-  <link href="client/style.css" rel="stylesheet" type="text/css">
+  createButton('brag', 'sendBrag'); function sendBrag() {
+   var messageStr = 'I just reached ' + gFinalScore + ' in Critical Mass!';
+
+   FB.ui({ method: 'feed',
+     caption: messageStr,
+     name: 'Play Critical Mass Now',
+     picture: 'IMAGE_URL',
+     link: 'CANVAS_PAGE_URL'
+   }, fbCallback);
+ }
+ <link href="client/style.css" rel="stylesheet" type="text/css">
   <link rel="apple-touch-icon" href="http://www.mattwkelly.com/html5/critical-mass/critical_mass.png" />
 </head>
 <body ontouchmove="BlockMove(event);">
