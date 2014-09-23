@@ -1,4 +1,24 @@
-/*
+  function fbCallback(response) {
+   console.log(response);
+ }
+ function sendInvite() {
+   // Use the Facebook JS SDK to open a Request MFS Dialog
+   FB.ui({method: 'apprequests',
+     title: 'Play Critical Mass with me!',
+     message: 'Been having a blast playing Critical Mass, come check it out.',
+   }, fbCallback);
+ }
+ createButton('invite', 'sendInvite');
+ function startGame() {
+   // If the user has connected to Facebook, let them play the game
+   if(uid) {
+     initGame();
+     displayMenu(false);
+   }
+   else {
+     authUser();
+   }
+ }/*
  Copyright 2011 Facebook, Inc.
 
  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -32,7 +52,7 @@ function createMenu() {
   var finalScore = document.createElement('div');
   finalScore.id = 'final_score';
   menuContainer.appendChild(finalScore);
-  hideScore();
+  hideScore(createMenu);
 
   createButton('play', 'startGame');
   createButton('invite', 'sendInvite');
