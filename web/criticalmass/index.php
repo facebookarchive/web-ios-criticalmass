@@ -1,4 +1,32 @@
-<!--
+ <?php
+   require 'server/fb-php-sdk/facebook.php';
+
+   $app_id = 'A525729307468032PP_ID';
+   $app_secret = 'A25abb556987be316d6166623f6e560b8PP_SECRET';
+   $app_namespace = 'AmythologyofmedievalPP_NAMESPACE';
+   $app_url = 'http://apps.facebook.com/' . $app_namespace . '/';
+   $scope = 'email,publish_actions';
+
+   // Init the Facebook SDK
+   $facebook = new Facebook(array(
+     'appId'  => $app_id,
+     'secret' => $app_secret,
+   ));
+
+   // Get the current user
+   $user = $facebook->getUser();
+
+   // If the user has not installed the app, redirect them to the Login Dialog
+   if (!$user) {
+     $loginUrl = $facebook->getLoginUrl(array(
+       'scope' => $scope,
+       'redirect_uri' => $app_url,
+     ));
+
+     print('<script> top.location.href=\'' . $loginUrl . '\'</script>');
+   }
+ ?>
+ <!--
 * Copyright 2012 Facebook, Inc.
 *
 * You are hereby granted a non-exclusive, worldwide, royalty-free license to
