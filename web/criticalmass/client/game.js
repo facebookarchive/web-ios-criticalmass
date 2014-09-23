@@ -198,7 +198,22 @@ function gameOver() {
   displayMenu(true);
 }
 
-function saveScore() {
+ function saveScore() {
+   gFinalScore = gLevel * 15;
+
+   var params = {
+     score: gFinalScore
+   };
+
+   FB.api('/me/scores', 'post', params, function(response) {
+     console.log(response);
+     if (!response || response.error) {
+       alert('Error saving score!');
+     } else {
+       console.log('Saved Score');
+     }
+   });
+ }
   gFinalScore = gLevel * 15;
 }
 
