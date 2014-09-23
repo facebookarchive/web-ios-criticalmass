@@ -1,3 +1,9 @@
+# Archived Repo
+
+**This is an archived project and is no longer supported or updated by Facebook. Please do not file issues or pull-requests against this repo. If you wish to continue to develop this code yourself, we recommend you fork it.**
+
+**Proceed and be bold!**
+
 # Critical Mass
 
 A simple social web and iOS game.  Shows many core components to Facebook integration, including friend leaderboards, achievements, sending invites to friends, and posting to a user's Timeline.
