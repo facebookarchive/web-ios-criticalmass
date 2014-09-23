@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/fbsamples/web-ios-criticalmass/commits/master</id>
+  <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commits/master"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/fbsamples/web-ios-criticalmass/commits/master.atom"/>
+  <title>Recent Commits to web-ios-criticalmass:master</title>
+  <updated>2013-02-01T15:00:51-08:00</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/cf081dcfe543b44f84aa0d139128a0c142d0e143</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/cf081dcfe543b44f84aa0d139128a0c142d0e143"/>
+    <title>
+        Update METADATA
+    </title>
+    <updated>2013-02-01T15:00:51-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m METADATA
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Update METADATA&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/20a9f2b10661e2942fbea224d57ae068d435f8e6</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/20a9f2b10661e2942fbea224d57ae068d435f8e6"/>
+    <title>
+        Removing fuse file.
+    </title>
+    <updated>2012-11-26T11:09:56-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>- screenshots/.fuse_hidden000000a500000002
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Removing fuse file.&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ef75143ddf638f8acd4c529665a7ecd52dbb4671</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/ef75143ddf638f8acd4c529665a7ecd52dbb4671"/>
+    <title>
+        Updating screenshot
+    </title>
+    <updated>2012-11-20T17:36:58-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>- screenshots/.fuse_hidden000000a200000001
++ screenshots/.fuse_hidden000000a500000002
+m screenshots/sample_critical_mass_1.PNG
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updating screenshot&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9755deb84e7177bc23fe7503ca63f17bb50651a5</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/9755deb84e7177bc23fe7503ca63f17bb50651a5"/>
+    <title>
+        Updating screenshot
+    </title>
+    <updated>2012-11-20T17:11:32-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m METADATA
++ screenshots/.fuse_hidden000000a200000001
+m screenshots/sample_critical_mass_1.PNG
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updating screenshot&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/762a9434ed2174e2302d97fb05decdc4eed1dc91</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/762a9434ed2174e2302d97fb05decdc4eed1dc91"/>
+    <title>
+        Updating METADATA
+    </title>
+    <updated>2012-11-14T18:03:26-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m METADATA
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updating METADATA&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/b430ee3c681af24ee3a2fc88799418c41fa0a308</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/b430ee3c681af24ee3a2fc88799418c41fa0a308"/>
+    <title>
+        Adding METADATA
+    </title>
+    <updated>2012-11-14T17:29:04-08:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>+ METADATA
++ screenshots/sample_critical_mass_1.PNG
++ screenshots/sample_critical_mass_2.PNG
++ screenshots/sample_critical_mass_3.PNG
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Adding METADATA&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/98d583756c9cde82f7bdaf4bc34af740c7494996</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/98d583756c9cde82f7bdaf4bc34af740c7494996"/>
+    <title>
+        User access token for Scores and Achievements.
+    </title>
+    <updated>2012-09-08T11:40:33-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4f97ded3b8982cb236b2531baf3c0ac1?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name></name>
+      <email>gjm@fb.com</email>
+    </author>
+    <content type="html">
+      &lt;pre>m web/criticalmasscomplete/client/game.js
+- web/criticalmasscomplete/server/saveachievement.php
+- web/criticalmasscomplete/server/savescore.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>User access token for Scores and Achievements.&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/630004ea2961c415a2415c568288f58d38f7027b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/630004ea2961c415a2415c568288f58d38f7027b"/>
+    <title>
+        Updating README.
+    </title>
+    <updated>2012-08-09T14:38:26-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>- LICENSE
++ README.md
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updating README.&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/667db3dba189b2f8d3ff8a718031b66b008bdf16</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/667db3dba189b2f8d3ff8a718031b66b008bdf16"/>
+    <title>
+        Updating README.
+    </title>
+    <updated>2012-08-09T14:37:58-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b8671ed333a50c613f7a9dd7bf5d469f?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>mattwkelly</name>
+      <uri>https://github.com/mattwkelly</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m README
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updating README.&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4d582a33efe65951b03d55e2b05c25378fc017cb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/4d582a33efe65951b03d55e2b05c25378fc017cb"/>
+    <title>
+        Updated comments
+    </title>
+    <updated>2012-05-18T02:07:09-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m web/criticalmass/client/game.js
+m web/criticalmass/client/ui.js
+m web/criticalmass/index.php
+m web/criticalmass/index_mobile.php
+m web/criticalmass/server/goldmedal.php
+m web/criticalmass/server/saveachievement.php
+m web/criticalmasscomplete/client/game.js
+m web/criticalmasscomplete/client/ui.js
+m web/criticalmasscomplete/copypasta/examples.txt
+m web/criticalmasscomplete/index.php
+m web/criticalmasscomplete/index_mobile.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Updated comments&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/260d0908d28f2330a0d767fb9d8ddd752d6f6581</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/260d0908d28f2330a0d767fb9d8ddd752d6f6581"/>
+    <title>
+        Add support for Achievements to Critical Mass
+    </title>
+    <updated>2012-04-23T13:04:45-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m web/criticalmass/server/goldmedal.php
+m web/criticalmass/server/saveachievement.php
+m web/criticalmass/server/savescore.php
+m web/criticalmasscomplete/server/goldmedal.php
+m web/criticalmasscomplete/server/saveachievement.php
+m web/criticalmasscomplete/server/savescore.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Add support for Achievements to Critical Mass&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d43567cf3a0bed19268f207a8c230a47f9714572</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/d43567cf3a0bed19268f207a8c230a47f9714572"/>
+    <title>
+        Add support for Achievements to Critical Mass
+    </title>
+    <updated>2012-04-23T12:44:35-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m web/criticalmasscomplete/client/game.js
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Add support for Achievements to Critical Mass&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/56d22ac67d606467bbd5733680d30f06dcb3c433</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/56d22ac67d606467bbd5733680d30f06dcb3c433"/>
+    <title>
+        Add support for Achievements to Critical Mass
+    </title>
+    <updated>2012-04-23T12:41:33-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>- web/criticalmass/server/.DS_Store
+- web/criticalmasscomplete/client/.ui.js.swp
+- web/criticalmasscomplete/server/.DS_Store
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Add support for Achievements to Critical Mass&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7ce0956a70245ac12fa955657257f6a57cc269b0</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/7ce0956a70245ac12fa955657257f6a57cc269b0"/>
+    <title>
+        Add support for Achievements to Critical Mass
+    </title>
+    <updated>2012-04-23T12:38:59-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>+ web/criticalmass/server/.DS_Store
++ web/criticalmass/server/goldmedal.php
++ web/criticalmass/server/saveachievement.php
++ web/criticalmasscomplete/server/.DS_Store
++ web/criticalmasscomplete/server/goldmedal.php
++ web/criticalmasscomplete/server/saveachievement.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Add support for Achievements to Critical Mass&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/95a36e0e67fa02df5b993ac28bcec2b7ac43e634</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/95a36e0e67fa02df5b993ac28bcec2b7ac43e634"/>
+    <title>
+        Add support for Achievements to Critical Mass
+    </title>
+    <updated>2012-04-23T12:35:35-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/4a814f5bae5218aa54beb9c485905f91?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>koumouz</name>
+      <uri>https://github.com/koumouz</uri>
+    </author>
+    <content type="html">
+      &lt;pre>m web/README.txt
+m web/criticalmass/client/ui.js
+- web/criticalmass/server/gold.php
+m web/criticalmasscomplete/client/core.js
+m web/criticalmasscomplete/client/game.js
+m web/criticalmasscomplete/client/ui.js
+- web/criticalmasscomplete/server/gold.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Add support for Achievements to Critical Mass&lt;/pre>
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7eca87a0240525a4c75ce75c6a25ef2334a37116</id>
+    <link type="text/html" rel="alternate" href="https://github.com/fbsamples/web-ios-criticalmass/commit/7eca87a0240525a4c75ce75c6a25ef2334a37116"/>
+    <title>
+        Initial commit
+    </title>
+    <updated>2012-03-20T18:14:41-07:00</updated>
+    <media:thumbnail height="30" width="30" url="https://secure.gravatar.com/avatar/b328b874e5c3fc731f3edd23ec9cdf6b?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
+    <author>
+      <name>caabernathy</name>
+      <uri>https://github.com/caabernathy</uri>
+    </author>
+    <content type="html">
+      &lt;pre>+ LICENSE
++ README
++ credits/README.txt
++ credits/callback.php
++ credits/client/core.js
++ credits/client/game.js
++ credits/client/style.css
++ credits/client/ui.js
++ credits/copypasta/.examples.txt.swp
++ credits/copypasta/examples.txt
++ credits/criticalmass.png
++ credits/criticalmasscoin.html
++ credits/fb-php-sdk/base_facebook.php
++ credits/fb-php-sdk/facebook.php
++ credits/fb-php-sdk/fb_ca_chain_bundle.crt
++ credits/index.php
++ credits/index_mobile.php
++ credits/server/savescore.php
++ ios/CriticalMass/CriticalMass.xcodeproj/project.pbxproj
++ ios/CriticalMass/CriticalMass.xcodeproj/project.xcworkspace/contents.xcworkspacedata
++ ios/CriticalMass/CriticalMass.xcodeproj/project.xcworkspace/xcuserdata/caabernathy.xcuserdatad/UserInterfaceState.xcuserstate
++ ios/CriticalMass/CriticalMass.xcodeproj/project.xcworkspace/xcuserdata/caabernathy.xcuserdatad/WorkspaceSettings.xcsettings
++ ios/CriticalMass/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
++ ios/CriticalMass/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcschemes/CriticalMassTest.xcscheme
++ ios/CriticalMass/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcschemes/xcschememanagement.plist
++ ios/CriticalMass/CriticalMass/AppDelegate.h
++ ios/CriticalMass/CriticalMass/AppDelegate.m
++ ios/CriticalMass/CriticalMass/CriticalMass-Info.plist
++ ios/CriticalMass/CriticalMass/CriticalMass-Prefix.pch
++ ios/CriticalMass/CriticalMass/Icon.png
++ ios/CriticalMass/CriticalMass/Icon@2x.png
++ ios/CriticalMass/CriticalMass/ViewController.h
++ ios/CriticalMass/CriticalMass/ViewController.m
++ ios/CriticalMass/CriticalMass/criticalmass_1.png
++ ios/CriticalMass/CriticalMass/criticalmass_10.png
++ ios/CriticalMass/CriticalMass/criticalmass_11.png
++ ios/CriticalMass/CriticalMass/criticalmass_12.png
++ ios/CriticalMass/CriticalMass/criticalmass_13.png
++ ios/CriticalMass/CriticalMass/criticalmass_14.png
++ ios/CriticalMass/CriticalMass/criticalmass_15.png
++ ios/CriticalMass/CriticalMass/criticalmass_2.png
++ ios/CriticalMass/CriticalMass/criticalmass_3.png
++ ios/CriticalMass/CriticalMass/criticalmass_4.png
++ ios/CriticalMass/CriticalMass/criticalmass_5.png
++ ios/CriticalMass/CriticalMass/criticalmass_6.png
++ ios/CriticalMass/CriticalMass/criticalmass_7.png
++ ios/CriticalMass/CriticalMass/criticalmass_8.png
++ ios/CriticalMass/CriticalMass/criticalmass_9.png
++ ios/CriticalMass/CriticalMass/en.lproj/InfoPlist.strings
++ ios/CriticalMass/CriticalMass/en.lproj/ViewController.xib
++ ios/CriticalMass/CriticalMass/main.m
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/project.pbxproj
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/project.xcworkspace/contents.xcworkspacedata
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/project.xcworkspace/xcuserdata/caabernathy.xcuserdatad/UserInterfaceState.xcuserstate
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/project.xcworkspace/xcuserdata/caabernathy.xcuserdatad/WorkspaceSettings.xcsettings
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcschemes/CriticalMassTest.xcscheme
++ ios/CriticalMassComplete/CriticalMass.xcodeproj/xcuserdata/caabernathy.xcuserdatad/xcschemes/xcschememanagement.plist
++ ios/CriticalMassComplete/CriticalMass/AppDelegate.h
++ ios/CriticalMassComplete/CriticalMass/AppDelegate.m
++ ios/CriticalMassComplete/CriticalMass/CriticalMass-Info.plist
++ ios/CriticalMassComplete/CriticalMass/CriticalMass-Prefix.pch
++ ios/CriticalMassComplete/CriticalMass/Icon.png
++ ios/CriticalMassComplete/CriticalMass/Icon@2x.png
++ ios/CriticalMassComplete/CriticalMass/ViewController.h
++ ios/CriticalMassComplete/CriticalMass/ViewController.m
++ ios/CriticalMassComplete/CriticalMass/criticalmass_1.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_10.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_11.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_12.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_13.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_14.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_15.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_2.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_3.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_4.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_5.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_6.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_7.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_8.png
++ ios/CriticalMassComplete/CriticalMass/criticalmass_9.png
++ ios/CriticalMassComplete/CriticalMass/en.lproj/InfoPlist.strings
++ ios/CriticalMassComplete/CriticalMass/en.lproj/ViewController.xib
++ ios/CriticalMassComplete/CriticalMass/main.m
++ ios/README.mdown
++ web/Developer_App_Settings.jpg
++ web/README.txt
++ web/criticalmass/client/core.js
++ web/criticalmass/client/game.js
++ web/criticalmass/client/style.css
++ web/criticalmass/client/ui.js
++ web/criticalmass/copypasta/examples.txt
++ web/criticalmass/criticalmass.png
++ web/criticalmass/index.php
++ web/criticalmass/index_mobile.php
++ web/criticalmass/server/fb-php-sdk/base_facebook.php
++ web/criticalmass/server/fb-php-sdk/facebook.php
++ web/criticalmass/server/fb-php-sdk/fb_ca_chain_bundle.crt
++ web/criticalmass/server/gold.php
++ web/criticalmass/server/goldmedal.png
++ web/criticalmass/server/savescore.php
++ web/criticalmasscomplete/client/.ui.js.swp
++ web/criticalmasscomplete/client/core.js
++ web/criticalmasscomplete/client/game.js
++ web/criticalmasscomplete/client/style.css
++ web/criticalmasscomplete/client/ui.js
++ web/criticalmasscomplete/copypasta/examples.txt
++ web/criticalmasscomplete/criticalmass.png
++ web/criticalmasscomplete/index.php
++ web/criticalmasscomplete/index_mobile.php
++ web/criticalmasscomplete/server/fb-php-sdk/base_facebook.php
++ web/criticalmasscomplete/server/fb-php-sdk/facebook.php
++ web/criticalmasscomplete/server/fb-php-sdk/fb_ca_chain_bundle.crt
++ web/criticalmasscomplete/server/gold.php
++ web/criticalmasscomplete/server/goldmedal.png
++ web/criticalmasscomplete/server/savescore.php
+&lt;/pre>
+      &lt;pre style='white-space:pre-wrap;width:81ex'>Initial commit&lt;/pre>
+    </content>
+  </entry>
+</feed>
